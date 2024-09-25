@@ -3,6 +3,10 @@ Operating systems Lab exercise
 # Linux commands-Shell scripting
 Linux commands-Shell scripting
 
+~~~
+Name:Inafncia felcy P
+Reg No:212223040067
+~~~
 # AIM:
 To practice Linux Commands and Shell Scripting
 
@@ -42,23 +46,58 @@ s.n. dasgupta
 ### Display the content of the files
 cat < file1
 ## OUTPUT
-
+```
+chanchal singhvi
+c.k. shukla
+s.n. dasgupta
+sumit chakrobarty
+```
 
 
 cat < file2
 ## OUTPUT
+```
+anil aggarwal
+barun sengupta
+c.k. shukla
+lalit chowdury
+s.n. dasgupta
+```
 
 
 # Comparing Files
 cmp file1 file2
 ## OUTPUT
- 
+```
+file1 file2 differ: char1,line1
+comm file1 file2
+``` 
 comm file1 file2
  ## OUTPUT
-
+ ```
+anil aggarwal
+barun sengupta
+c.k. shukla
+chanchal singhvi
+c.k. shukla
+lalit chowdury
+s.n. dasgupta
+```
  
 diff file1 file2
 ## OUTPUT
+```
+--- file1
++++ file2
+@@ -1,4 +1,5 @@
+-chanchal singhvi
++anil aggarwal
++barun sengupta
+ c.k. shukla
++lalit chowdury
+ s.n. dasgupta
+-sumit chakrobarty
+```
 
 
 #Filters
@@ -82,17 +121,31 @@ cat > file22
 
 cut -c1-3 file11
 ## OUTPUT
+```
+Hel
+Thi
+```
 
 
 
 
 cut -d "|" -f 1 file22
 ## OUTPUT
+```
+1001
+1002
+1003
+```
 
 
 
 cut -d "|" -f 2 file22
 ## OUTPUT
+```
+Ram
+tom
+Joe
+```
 
 
 cat < newfile 
@@ -112,34 +165,82 @@ grep Hello newfile
 
 grep hello newfile 
 ## OUTPUT
+```
+Hello world
+```
 
 
 
 
 grep -v hello newfile 
 ## OUTPUT
+```
+Hello world
+```
 
 
 
 cat newfile | grep -i "hello"
 ## OUTPUT
+```
+Hello world
+hello world
+```
 
 
 
 
 cat newfile | grep -i -c "hello"
 ## OUTPUT
-
+```
+2
+```
 
 
 
 grep -R ubuntu /etc
 ## OUTPUT
+```
+grep: unrecognized option: R
+BusyBox v1.31.1 () multi-call binary.
+ 
+Usage: grep [-HhnlLoqvsriwFE] [-m N] [-A/B/C N] PATTERN/-e PATTERN.../-f FILE [F
+ILE]...
+ 
+Search for PATTERN in FILEs (or stdin)
+ 
+        -H      Add 'filename:' prefix
+        -h      Do not add 'filename:' prefix
+        -n      Add 'line_no:' prefix
+        -l      Show only names of files that match
+        -L      Show only names of files that don't match
+        -c      Show only count of matching lines
+        -o      Show only the matching part of line
+        -q      Quiet. Return 0 if PATTERN is found, 1 otherwise
+        -v      Select non-matching lines
+        -s      Suppress open and read errors
+        -r      Recurse
+        -i      Ignore case
+        -w      Match whole words only
+        -x      Match whole lines only
+        -F      PATTERN is a literal (not regexp)
+        -E      PATTERN is an extended regexp
+        -m N    Match up to N times per file
+        -A N    Print N lines of trailing context
+        -B N    Print N lines of leading context
+        -C N    Same as '-A N -B N'
+        -e PTRN Pattern to match
+        -f FILE Read pattern from file
+```
 
 
 
 grep -w -n world newfile   
 ## OUTPUT
+```
+1:Hello world
+2:hello world
+```
 
 
 cat < newfile 
@@ -163,60 +264,101 @@ Linux is best in this World
  ```
 egrep -w 'Hello|hello' newfile 
 ## OUTPUT
+```
+Hello world
+hello world
+```
 
 
 
 egrep -w '(H|h)ello' newfile 
 ## OUTPUT
+```
+Hello world
+hello world
+```
 
 
 
 egrep -w '(H|h)ell[a-z]' newfile 
 ## OUTPUT
-
+```
+Hello world
+hello world
+```
 
 
 
 egrep '(^hello)' newfile 
 ## OUTPUT
+```
+hello world
+```
 
 
 
 egrep '(world$)' newfile 
 ## OUTPUT
-
+```
+hello world
+hello world
+```
 
 
 egrep '(World$)' newfile 
 ## OUTPUT
+```
+Linux is best in the World
+```
 
 
 egrep '((W|w)orld$)' newfile 
 ## OUTPUT
+```
+Hello world
+hello world
+Linux is best in this World
+```
 
 
 
 egrep '[1-9]' newfile 
 ## OUTPUT
+```
+Linux is world number 1
+```
 
 
 
 egrep 'Linux.*world' newfile 
 ## OUTPUT
+```
+Linux is world number 1
+```
 
 
 egrep 'Linux.*World' newfile 
 ## OUTPUT
+```
+Linux is best in this World
+```
 
 
 egrep l{2} newfile
 ## OUTPUT
+```
+Unix is predecessor
+Linux is best in this World
+```
 
 
 
 egrep 's{1,2}' newfile
 ## OUTPUT 
-
+```
+Unix is predecessor
+Linux is best in this World
+```
 
 cat > file23
 ```
@@ -234,75 +376,159 @@ cat > file23
 
 sed -n -e '3p' file23
 ## OUTPUT
-
-
-
+```
+1002 | tom | 5000 | Admin
+```
 sed -n -e '$p' file23
 ## OUTPUT
-
-
-
+```
+1001 | Ram | 10000 | HR
+```
 sed  -e 's/Ram/Sita/' file23
 ## OUTPUT
-
+```
+1001 | Sita | 10000 | HR
+1001 | Sita | 10000 | HR
+1002 | tom | 5000 | Admin
+1003 | Joe | 7000 | Developer
+1005 | Sam | 5000 | HR
+1004 | Sit | 7000 | Dev
+1003 | Joe | 7000 | Developer
+1001 | Sita | 10000 | HR
+```
 
 
 sed  -e '2s/Ram/Sita/' file23
 ## OUTPUT
-
+```
+1001 | Ram | 10000 | HR
+1001 | Sita | 10000 | HR
+1002 | tom | 5000 | Admin
+1003 | Joe | 7000 | Developer
+1005 | Sam | 5000 | HR
+1004 | Sit | 7000 | Dev
+1003 | Joe | 7000 | Developer
+1001 | Ram | 10000 | HR
+```
 
 
 sed  '/tom/s/5000/6000/' file23
 ## OUTPUT
+```
+1001 | Ram | 10000 | HR
+1001 | Ram | 10000 | HR
+1002 | tom | 6000 | Admin
+1003 | Joe | 7000 | Developer
+1005 | Sam | 5000 | HR
+1004 | Sit | 7000 | Dev
+1003 | Joe | 7000 | Developer
+1001 | Ram | 10000 | HR
+```
 
 
 
 sed -n -e '1,5p' file23
 ## OUTPUT
+```
+1001 | Ram | 10000 | HR
+1001 | Ram | 10000 | HR
+1002 | tom | 5000 | Admin
+1003 | Joe | 7000 | Developer
+1005 | Sam | 5000 | HR
+```
 
 
 
 sed -n -e '2,/Joe/p' file23
 ## OUTPUT
+```
+1001 | Ram | 10000 | HR
+1002 | tom | 5000 | Admin
+1003 | Joe | 7000 | Developer
+```
 
 
 
 
 sed -n -e '/tom/,/Joe/p' file23
 ## OUTPUT
+```
+1002 | tom | 5000 | Admin
+1003 | Joe | 7000 | Developer
+```
 
 
 
 seq 10 
 ## OUTPUT
-
+```
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
 
 
 seq 10 | sed -n '4,6p'
 ## OUTPUT
-
+```
+4
+5
+6
+```
 
 
 seq 10 | sed -n '2,~4p'
 ## OUTPUT
+```
+2
+3
+4
+```
 
 
 
 seq 3 | sed '2a hello'
 ## OUTPUT
+```
+1
+2
+hello
+3
+```
 
 
 
 seq 2 | sed '2i hello'
 ## OUTPUT
-
+```
+1
+hello
+2
+```
 
 seq 10 | sed '2,9c hello'
 ## OUTPUT
+```
+1
+hello
+10
+```
 
 
 sed -n '2,4{s/^/$/;p}' file23
 ## OUTPUT
+```
+$1001 | Ram | 10000 | HR
+$1002 | tom | 5000 | Admin
+$1003 | Joe | 7000 | Developer
+```
 
 
 
@@ -356,17 +582,40 @@ www. mrcet.... com
  ```
 cat urllist.txt | tr -d ' '
  ## OUTPUT
+ ```
+www.yahoo.com
+www.google.com
+www.mrcet....com
+```
 
 
  
 cat urllist.txt | tr -d ' ' | tr -s '.'
 ## OUTPUT
-
+```
+www.yahoo.com
+www.google.com
+www.mrcet.com
+```
 
 
 #Backup commands
 tar -cvf backup.tar *
 ## OUTPUT
+```
+bench.py
+file1
+file11
+file2
+file21
+file22
+file23
+hello.c
+hello.js
+newfile
+readme.txt
+urllist.txt
+```
 
 
 mkdir backupdir
@@ -375,11 +624,42 @@ mv backup.tar backupdir
  
 tar -tvf backup.tar
 ## OUTPUT
+```
+drwxr-xr-x root/root         0 2024-08-16 10:12:02 backupdir/
+-rw-r--r-- root/root     13312 2024-08-16 10:10:04 backupdir/backup.tar
+-rw-r--r-- root/root       114 2020-07-05 23:17:07 bench.py
+-rw-r--r-- root/root        61 2024-08-16 09:48:52 file1
+-rw-r--r-- root/root        29 2024-08-16 09:52:03 file11
+-rw-r--r-- root/root        70 2024-08-16 09:49:11 file2
+-rw-r--r-- root/root       131 2024-08-16 10:06:47 file21
+-rw-r--r-- root/root       155 2024-08-16 10:07:30 file22
+-rw-r--r-- root/root       210 2024-08-16 10:02:59 file23
+-rw-r--r-- root/root        76 2020-07-03 14:45:56 hello.c
+-rw-r--r-- root/root        22 2020-06-26 14:57:33 hello.js
+-rw-r--r-- root/root        96 2024-08-16 09:57:21 newfile
+-rw-r--r-- root/root       151 2020-07-05 23:19:13 readme.txt
+-rw-r--r-- root/root        52 2024-08-16 10:09:28 urllist.txt
+```
 
 
 tar -xvf backup.tar
 ## OUTPUT
-
+```
+backupdir/
+backupdir/backup.tar
+bench.py
+file1
+file11
+file2
+file21
+file22
+file23
+hello.c
+hello.js
+newfile
+readme.txt
+urllist.txt
+```
 gzip backup.tar
 
 ls .gz
@@ -387,6 +667,12 @@ ls .gz
  
 gunzip backup.tar.gz
 ## OUTPUT
+```
+hello in this world
+i cant stop
+for this non stop movement
+stop
+```
 
  
 # Shell Script
@@ -397,6 +683,12 @@ echo 'echo Hello World‘; exit 0 >> my-script.sh
 chmod 755 my-script.sh
 ./my-script.sh
 ## OUTPUT
+```
+hello in this world
+i cant stop
+for this non stop movement
+stop
+```
 
  
 cat << stop > herecheck.txt
@@ -503,6 +795,11 @@ chmod 755 strcomp.sh
  
 ./strcomp.sh 
 ## OUTPUT
+```
+./strcomp.sh: line 1: #!/bin/bash: not found
+baseball is less than hockey
+./strcomp.sh: line 10: ^d: not found
+```
 
 
 # check file ownership
@@ -530,6 +827,16 @@ fi
  ```
 ./psswdperm.sh
 ## OUTPUT
+```
+bash
+\#!/bin/bash
+if [ -O /etc/passwd ]
+then
+echo “You are the owner of the /etc/passwd file”
+else
+echo “Sorry, you are not the owner of the /etc/passwd file”
+fi
+```
 
 # check if with file location
 cat>ifnested.sh 
@@ -576,6 +883,9 @@ fi
 
 ./ifnested.sh 
 ## OUTPUT
+```
+sh: ./ifnested.sh: Permission denied
+```
 
 
 
@@ -946,6 +1256,9 @@ $ chmod 755 exread.sh
  
 $ ./exread.sh 
 ## OUTPUT
+```
+sh: ./ifnested.sh: Permission denied
+```
 
 
  cat exread1.sh
@@ -1085,6 +1398,30 @@ else
 fi
 ```
 ## OUTPUT 
+```
+#num=545
+echo "Enter the number"
+read num
+s=0
+rev=""
+temp=$num
+while [ $num -gt 0 ]
+do
+	# Get Remainder
+	s=$(( $num % 10 ))
+	# Get next digit
+	num=$(( $num / 10 ))
+	# Store previous number and
+	# current digit in reverse
+	rev=$( echo ${rev}${s} )
+done
+if [ $temp -eq $rev ];
+then
+	echo "Number is palindrome"
+else
+	echo "Number is NOT palindrome"
+fi
+```
 
 
 # RESULT:
